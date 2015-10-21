@@ -158,7 +158,7 @@ bumphunterEngine<-function(mat, design, chr = NULL, pos,
                                    ##create a null model
                                    matstar <- null+resids[,bootIndex]
                                    ##compute the null beta estimate
-                                   coef <- backsolve(qr.R(qr.X),crossprod(qr.Q(qr.X),t(matstar)))[2,]            
+                                   coef <- backsolve(qr.R(qr.X),crossprod(qr.Q(qr.X),t(matstar)))[coef,]
                                    if (useWeights){
                                        ##compute sigma
                                        sigma <- rowSums(t(tcrossprod( diag(nrow(design)) - tcrossprod(qr.Q(qr.X)),  matstar))^2)
